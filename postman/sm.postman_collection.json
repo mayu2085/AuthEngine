@@ -1,0 +1,154 @@
+{
+	"variables": [],
+	"info": {
+		"name": "sm",
+		"_postman_id": "7c62d0f5-5b90-6670-96c6-08bc0971c591",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "HomePage",
+			"request": {
+				"url": "{{MOCK_API}}/home",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "mock_header_api",
+			"request": {
+				"url": "{{MOCK_API}}/headers/evaluate/cadmin",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getOrderData_BWEB",
+			"request": {
+				"url": "{{MOCK_API}}/ws",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ord=\"http://a1ta.infonova.at/dach/orderdata\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <ord:getOrderDataRequest>\r\n         <ord:token>1234</ord:token>\r\n         <!--Optional:-->\r\n         <ord:frontEndSystem>XYZ</ord:frontEndSystem>\r\n      </ord:getOrderDataRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getOrderData_PartnerCenter",
+			"request": {
+				"url": "{{MOCK_API}}/ws",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ord=\"http://a1ta.infonova.at/dach/orderdata\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <ord:getOrderDataRequest>\r\n         <ord:token>u8Y3Oq6w5xRxkYWb4JMAjRRw6zKBdvsr</ord:token>\r\n         <!--Optional:-->\r\n         <ord:frontEndSystem>XYZ</ord:frontEndSystem>\r\n      </ord:getOrderDataRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "via_proxy_without_token",
+			"request": {
+				"url": "{{ZULL_PROXY}}/api/home",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "via_proxy_BWEB_flow",
+			"request": {
+				"url": {
+					"raw": "{{ZULL_PROXY}}/api/home?token=1234",
+					"host": [
+						"{{ZULL_PROXY}}"
+					],
+					"path": [
+						"api",
+						"home"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "1234",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/html",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "It can't be fully demonstrated here. Please use browser"
+			},
+			"response": []
+		},
+		{
+			"name": "via_proxy_PartnerCenter_flow",
+			"request": {
+				"url": {
+					"raw": "{{ZULL_PROXY}}/api/home?token=u8Y3Oq6w5xRxkYWb4JMAjRRw6zKBdvsr",
+					"host": [
+						"{{ZULL_PROXY}}"
+					],
+					"path": [
+						"api",
+						"home"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "u8Y3Oq6w5xRxkYWb4JMAjRRw6zKBdvsr",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

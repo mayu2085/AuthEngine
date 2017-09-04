@@ -1,0 +1,1 @@
+web: java -jar proxy/target/proxy-*.jar --server.port=$PORT
